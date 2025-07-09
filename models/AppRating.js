@@ -14,7 +14,7 @@ const appRatingSchema = new mongoose.Schema(
     submittedBy: {
       type: String,
     },
-    appName: String,
+    appName: {type:String},
   },
   { timestamps: true } // ✅ This adds createdAt and updatedAt
 );
