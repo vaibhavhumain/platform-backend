@@ -1,10 +1,18 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
 const appRatingSchema = new mongoose.Schema({
-  rating: { type: Number}, 
-  feedback: { type: String },
-  submittedBy: { type: String }, 
-  createdAt: { type: Date, default: Date.now }
-});
+  rating: {
+    type: Number,
+    required: true,
+    min: 1,
+    max: 5
+  },
+  feedback: {
+    type: String
+  },
+  submittedBy: {
+    type: String
+  }
+}, { timestamps: true });
 
-export default mongoose.models.AppRating || mongoose.model('AppRating', appRatingSchema);
+module.exports = mongoose.model('AppRating', appRatingSchema);
