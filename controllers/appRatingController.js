@@ -1,6 +1,7 @@
-import AppRating from '../models/AppRating.js';
+const AppRating = require('../models/AppRating');
 
-export const submitAppRating = async (req, res) => {
+// POST /api/app-ratings
+exports.submitAppRating = async (req, res) => {
   try {
     const { rating, feedback, submittedBy } = req.body;
 
@@ -23,10 +24,10 @@ export const submitAppRating = async (req, res) => {
   }
 };
 
-export const getAppRatings = async (req, res) => {
+// GET /api/app-ratings
+exports.getAppRatings = async (req, res) => {
   try {
     const ratings = await AppRating.find().sort({ createdAt: -1 });
-
     res.status(200).json(ratings);
   } catch (err) {
     console.error('Get Ratings Error:', err);
