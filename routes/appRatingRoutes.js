@@ -1,5 +1,5 @@
 import express from 'express';
-import { submitAppRating , getAppRatings } from '../controllers/appRatingController';
+import { submitAppRating, getAppRatings } from '../controllers/appRatingController.js'
 const router = express.Router();
 
 router.post('/',submitAppRating);
